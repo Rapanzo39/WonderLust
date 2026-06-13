@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wonderLust</title>
-</head>
+<% layout ("/layouts/boilerplate") %>
 <body>
     <h3>All Listing</h3>
-    <form action="/listings" method="GET">
+    <form action="/listings/new" method="GET">
         <button> create new listing </button>
     </form>
     <ul>
@@ -16,4 +10,3 @@
         <% } %>
     </ul>
 </body>
-</html>

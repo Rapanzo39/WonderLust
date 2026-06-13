@@ -5,14 +5,15 @@ const Listing = require('./models/listing');
 const initData = require('./init/data.js');
 const path = require('path');
 const methodOverride = require('method-override');
-
+const ejsMate = require("ejs-mate");
 
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
-
+app.engine('ejs', ejsMate);
+app.use(express.static(path.join(__dirname, 'public')));
 const MONGO_URI = 'mongodb://localhost:27017/wonderlust';
 
 main()
@@ -72,6 +73,15 @@ app.put('/listings/:id',async(req,res)=>{
     const {id} = req.params;
     await Listing.findByIdAndUpdate(id,{... req.body.listing });
     res.redirect(`/listings/${id}`);
+});
+
+
+//delete route
+app.delete('/listings/:id',async(req,res)=>{
+let {id} = req.params;
+let deletedListing = await Listing.findByIdAndDelete(id);
+console.log(deletedListing);
+res.redirect('/listings');
 });
 
 
