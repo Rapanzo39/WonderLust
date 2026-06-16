@@ -7,13 +7,11 @@ const listingSchema = new mongoose.Schema({
         type:String,
         required:true
     } ,
-    images: 
+    image: 
     {
-        default: "https://unsplash.com/photos/swan-swims-on-lake-near-house-and-foggy-mountains-ZIkRtXN3QGw",
-        type:String,
-        set: (v) => v === "" ?"https://unsplash.com/photos/swan-swims-on-lake-near-house-and-foggy-mountains-ZIkRtXN3QGw" : v,
-
-    },
+      filename: String,
+     url: String
+   },
     description:String,
     price: Number,
     location: String,
