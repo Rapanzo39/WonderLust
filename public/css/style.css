@@ -4,7 +4,7 @@ body{
  flex-direction: column;
  min-height:100vh;
 }
-.container-fluid px-4{
+.container-fluid{
  flex:1;    
 }
 
@@ -109,4 +109,28 @@ body{
     background-color:#fe424d !important;
     border:none !important;
 
+}
+
+/* edit page */
+
+.edit-btn{
+     background-color:#fe424d !important;
+    border:none !important;
+
+}
+
+/* show page */
+
+.show-img{
+    height:30vh;
+
+}
+
+.btns{
+    display:flex;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
 }

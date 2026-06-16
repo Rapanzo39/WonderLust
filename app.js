@@ -56,9 +56,9 @@ app.get("/listings/:id",async(req, res)=>{
 app.post('/listings',async(req,res)=>{
     const newListing = new Listing(req.body.listing);
     await newListing.save();
-   // console.log(newListing);
-    res.redirect("listings");
-   
+    // console.log(newListing);
+    // console.log(req.body);
+    res.redirect("listings");  
 });
 
 //edit route
