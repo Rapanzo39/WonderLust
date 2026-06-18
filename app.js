@@ -8,6 +8,8 @@ const methodOverride = require('method-override');
 const ejsMate = require("ejs-mate");
 
 
+
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({extended:true}));
@@ -56,10 +58,11 @@ app.get("/listings/:id",async(req, res)=>{
 app.post('/listings',async(req,res)=>{
     const newListing = new Listing(req.body.listing);
     await newListing.save();
-    // console.log(newListing);
-    // console.log(req.body);
+    console.log(newListing);
+    //console.log(req.body);
     res.redirect("listings");  
 });
+
 
 //edit route
 app.get('/listings/:id/edit',async(req,res)=>{
