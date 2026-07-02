@@ -65,9 +65,10 @@ body{
 
 /* cards */
 
-.card{
+.listing-card{
     /* margin: 1rem; */
     border:none !important;
+    margin-bottom: 2rem !important;
 }
 
 .card-img-top{
