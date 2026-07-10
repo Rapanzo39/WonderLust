@@ -1,21 +1,16 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
-
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-
 const ExpressError = require("./utils/ExpressError");
-
 const listings = require("./routes/listing.js");   
 const reviews = require("./routes/review");     
 const session = require("express-session");
-const falsh = require("connect-flash");
+const flash = require("connect-flash");
 
 const MONGO_URI = 'mongodb://localhost:27017/wonderlust';
-
-
 
 
 app.set('view engine', 'ejs');
@@ -29,14 +24,14 @@ const sessionconfig = {
     secret: 'mysupersecret',
     resave: false,
     saveUninitialized: true,
-    cokie: {
+    cookie: {
         expires: Date.now() + 7*24*60*60*1000,
         maxAge: 7*24*60*60*1000,  
         httpOnly: true
     } ,
 };
 app.use(session(sessionconfig));
-app.use(falsh());
+app.use(flash());
 
 app.use((req,res,next)=>{
     res.locals.flashMessages = req.flash("success");
