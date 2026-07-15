@@ -5,10 +5,16 @@ const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError");
-const listings = require("./routes/listing.js");   
-const reviews = require("./routes/review");     
+
+const listingsRouter = require("./routes/listing.js");   
+const reviewsRouter = require("./routes/review"); 
+const userRouter = require("./routes/user.js");    
 const session = require("express-session");
+
 const flash = require("connect-flash");
+const passport = require("passport");
+const localStrategy = require("passport-local");
+const User = require("./models/user.js");
 
 const MONGO_URI = 'mongodb://localhost:27017/wonderlust';
 
@@ -33,8 +39,16 @@ const sessionconfig = {
 app.use(session(sessionconfig));
 app.use(flash());
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use((req,res,next)=>{
     res.locals.flashMessages = req.flash("success");
+    res.locals.errorMessages = req.flash("error");
     next();
 });
 
@@ -53,8 +67,10 @@ app.get('/', (req,res)=>{
     res.send("root route");
 });
 
-app.use("/listings", listings);
-app.use("/listings/:id/reviews", reviews);
+
+app.use("/listings", listingsRouter);
+app.use("/listings/:id/reviews", reviewsRouter);
+app.use("/", userRouter);
 
 
 app.use((req,res,next)=>{
