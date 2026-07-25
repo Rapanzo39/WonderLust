@@ -24,8 +24,12 @@ module.exports.showListing = (async(req, res)=>{
 
 
 module.exports.createListing= (async (req, res) => {
+        let url = req.file.path;
+        let filename = req.file.filename;
+        
         const newListing = new Listing(req.body.listing);
         newListing.owner = req.user._id;
+        newListing.image = {url, filename};
         await newListing.save();
         console.log(newListing);
         req.flash("success", "Successfully made a new listing");
@@ -45,8 +49,14 @@ module.exports.createListing= (async (req, res) => {
 
 module.exports.updateListing = (async(req,res)=>{
     const {id} = req.params;
-    let listing = await Listing.findById(id);
-    await Listing.findByIdAndUpdate(id,{... req.body.listing });
+    let listing = await Listing.findByIdAndUpdate(id,{... req.body.listing });
+
+    if(typeof req.file !== "undefined"){
+     let url = req.file.path;
+    let filename = req.file.filename;
+    listing.image = {url, filename };
+    await listing.save();
+    }
     req.flash("success", "Updated a listing");
     res.redirect(`/listings/${id}`);
 });
