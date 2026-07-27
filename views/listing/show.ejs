@@ -1,5 +1,7 @@
 <% layout ("/layouts/boilerplate") %>
-<body>
+
+
+
     <div class="row mt-3">
   <div class="col-8 offset-3">
     <h3> <%= listing.title %> </h3>
@@ -31,8 +33,9 @@
 
   
     <div class="col-8 offset-3 mb-3">
-        <hr />
+       
           <% if(currentUser) { %>
+            <hr />
         <h4> Leave Review</h4>
         <form action="/listings/<%= listing.id %>/reviews" method="post" novalidate class="needs-validation">
             
@@ -64,13 +67,14 @@
         </form>
         <%}%> 
        
-        <p><b>All reviews</b></p>
+        <% if(listing.reviews.length > 0) { %>
         <div class="row">
-            <% for(review of listing.reviews){ %>
+            <p><b>All reviews</b></p>
+            <% for(let review of listing.reviews){ %>
                 <div class="card col-5 ms-3 mb-3">
                     <div class="card-body">
                         <h5 class="card-title">@<%= review.author.username %></h5>
-                         <p class="starability-result card-text" data-rating=<%= review.rating %>></p>
+                        <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
                         <p class="card-text"><%= review.comment %></p>
                         
                     </div>
@@ -80,9 +84,17 @@
                 </div>
             
         <% } %>  
-        
     </div>
+    <% } %>
 
  </div>
+ <div class="col-6 offset-3 mb-3">
+    <h3>Where you'll be </h3>
+    <div id="map"
+        data-coordinates='<%- JSON.stringify(listing.geometry.coordinates) %>'
+        data-title="<%= listing.title %>">
+    </div>
+     
+ </div>
 </div>
-</body>
+<script src="/js/map.js"></script>
