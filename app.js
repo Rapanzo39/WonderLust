@@ -69,9 +69,9 @@ async function main() {
     await mongoose.connect(MONGO_URI);
 }
 
-app.get('/', (req,res)=>{
-    res.send("root route");
-});
+// app.get('/', (req,res)=>{
+//     res.send("root route");
+// });
 
 
 app.use("/listings", listingsRouter);

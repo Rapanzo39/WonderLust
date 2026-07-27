@@ -39,6 +39,11 @@ const listingSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
+    //for diff category remaining building
+    category:{
+        type:String,
+        enum:["moutains","arctic","farms","trending","rooms","castle","camping"],
+    },
 });
 
 listingSchema.post('findOneAndDelete', async (listing) =>{
