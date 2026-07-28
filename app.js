@@ -21,7 +21,9 @@ const passport = require("passport");
 const localStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-const MONGO_URI = 'mongodb://localhost:27017/wonderlust';
+// const MONGO_URI = 'mongodb://localhost:27017/wonderlust';
+
+const dbUrl = process.env.ATLASDB_URL;
 
 
 app.set('view engine', 'ejs');
@@ -66,7 +68,7 @@ main()
     console.error('Database connection error', err);
 })
 async function main() {
-    await mongoose.connect(MONGO_URI);
+    await mongoose.connect(dbUrl);
 }
 
 // app.get('/', (req,res)=>{
