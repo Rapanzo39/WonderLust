@@ -15,16 +15,15 @@ const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review"); 
 const userRouter = require("./routes/user.js");    
 const session = require("express-session");
+const MongoStore = require('connect-mongo').default;
 
 const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-// const MONGO_URI = 'mongodb://localhost:27017/wonderlust';
 
 const dbUrl = process.env.ATLASDB_URL;
-
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -33,16 +32,34 @@ app.use(methodOverride('_method'));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+const store = MongoStore.create({
+    mongoUrl:dbUrl,
+    crypto : {
+        secret : process.env.SECRET,
+    },
+    touchAfter: 24 * 3600,
+});
+
+store.on("error",(err)=>{
+    console.log("ERROR in MONGO SESSION STORE", err);
+});
+
 const sessionconfig = {
-    secret: 'mysupersecret',
+    store,
+    secret : process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
-        expires: Date.now() + 7*24*60*60*1000,
-        maxAge: 7*24*60*60*1000,  
+        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true
     } ,
 };
+
+
+
 app.use(session(sessionconfig));
 app.use(flash());
 
