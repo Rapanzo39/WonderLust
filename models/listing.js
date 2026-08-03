@@ -42,7 +42,19 @@ const listingSchema = new mongoose.Schema({
     //for diff category remaining building
     category:{
         type:String,
-        enum:["moutains","arctic","farms","trending","rooms","castle","camping"],
+        enum:["Mountains",
+            "Arctic",
+            "Farms",
+            "Trending",
+            "Rooms",
+            "Iconic-city",  
+            "Castle",
+            "Camping",
+            "Beach",
+            "Domes",
+            "Swimming Pool",
+        ],
+         default: "Trending",
     },
 });
 
