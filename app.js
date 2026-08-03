@@ -24,6 +24,7 @@ const User = require("./models/user.js");
 const wishlistRouter = require("./routes/wishlist");
 // const Booking = require("./models/booking");
 const bookingRouter = require("./routes/booking.js");
+const legalRouter = require("./routes/legal");
 
 const dbUrl = process.env.ATLASDB_URL;
 
@@ -77,8 +78,7 @@ app.use((req,res,next)=>{
     res.locals.currentUser = req.user;
     next();
 });
-app.use("/wishlist", wishlistRouter);
-app.use("/bookings", bookingRouter);
+
 
 
 main()
@@ -98,6 +98,9 @@ async function main() {
 
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
+app.use("/bookings", bookingRouter);
+app.use("/wishlist", wishlistRouter);
+app.use("/legal", legalRouter);
 app.use("/", userRouter);
 
 
