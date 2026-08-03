@@ -21,7 +21,9 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 const User = require("./models/user.js");
-
+const wishlistRouter = require("./routes/wishlist");
+// const Booking = require("./models/booking");
+const bookingRouter = require("./routes/booking.js");
 
 const dbUrl = process.env.ATLASDB_URL;
 
@@ -59,7 +61,6 @@ const sessionconfig = {
 };
 
 
-
 app.use(session(sessionconfig));
 app.use(flash());
 
@@ -76,6 +77,8 @@ app.use((req,res,next)=>{
     res.locals.currentUser = req.user;
     next();
 });
+app.use("/wishlist", wishlistRouter);
+app.use("/bookings", bookingRouter);
 
 
 main()

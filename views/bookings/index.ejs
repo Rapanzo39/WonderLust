@@ -1,0 +1,78 @@
+<% layout("/layouts/boilerplate") %>
+
+<h2 class="mt-4 mb-4">My Bookings 🏨</h2>
+
+<div class="row">
+
+    <% if (bookings.length === 0) { %>
+        <div class="col-12">
+            <h4 class="text-center text-muted">No bookings yet!</h4>
+        </div>
+    <% } %>
+
+    <% bookings.forEach(booking => { %>
+
+    <div class="col-lg-4 col-md-6 mb-4">
+
+        <div class="card listing-card shadow-sm">
+
+            <!-- IMAGE -->
+            <% if (booking.listing.images && booking.listing.images.length > 0) { %>
+                <img src="<%= booking.listing.images[0].url %>" class="card-img-top" alt="listing image">
+            <% } else { %>
+                <img src="<%= booking.listing.image.url %>" class="card-img-top" alt="listing image">
+            <% } %>
+
+            <div class="card-body">
+
+                <!-- TITLE -->
+                <h5 class="card-title">
+                    <%= booking.listing.title %>
+                </h5>
+
+                <!-- DATES -->
+                <p class="mb-1">
+                    <b>Check In:</b> <%= booking.checkIn.toDateString() %>
+                </p>
+
+                <p class="mb-1">
+                    <b>Check Out:</b> <%= booking.checkOut.toDateString() %>
+                </p>
+
+                <p class="mb-2">
+                    <b>Guests:</b> <%= booking.guests %>
+                </p>
+
+                <!-- PRICE -->
+                <p class="wishlist-price fw-bold text-success">
+                    ₹ <%= booking.totalPrice.toLocaleString("en-IN") %>
+                </p>
+
+                <!-- PAYMENT STATUS BADGE -->
+                <% if (booking.paymentStatus === "paid") { %>
+                    <span style="color:green; font-weight:bold;">
+                        ✔ PAID
+                    </span>
+                <% } else { %>
+                    <span style="color:orange; font-weight:bold;">
+                        ⏳ PENDING
+                    </span>
+                <% } %>
+
+                <!-- CANCEL BUTTON -->
+                <form action="/bookings/<%= booking._id %>?_method=DELETE" method="POST">
+
+                    <button class="btn btn-danger mt-3 w-100">
+                        Cancel Booking
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <% }) %>
+
+</div>
