@@ -60,7 +60,10 @@ module.exports.isReviewAuthor = async(req, res, next)=>{
     let review = await Review.findById(reviewId);
     if(!review.author.equals(res.locals.currentUser._id)){
         req.flash("error", "You are not the author of this review");
-       return res.redirect(`/listings/${id}`);
+       return res.redirect(`/listings/${id}`);//return is called to stop the execution of this code.
+        // if user is not the owner of this listing. 
+        // If we don't use return, the next() function will be called 
+        // and the user will be able to delete the listing even if he is not the owner.
     }
     next();
 };

@@ -202,18 +202,10 @@
                   alt="listing image">
 
                   <% } %>
-    
-
-
-      <!-- <img src="<%= listing.image.url %>" 
-      class="card-img-top" alt="listing_image" 
-      style="height:20rem;"
-      /> -->
 
         
         <div class="card-img-overlay"></div>
         
-    
          <div class="card-body">
            <h5 class="card-title">
                 <%= listing.title %>
@@ -232,6 +224,8 @@
 </div>
  <% } %>
  </div>
+
+ 
       <script>
         let taxswitch = document.getElementById("switchCheckDefault");
         taxswitch.addEventListener("click", ()=>{

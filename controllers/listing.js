@@ -18,7 +18,7 @@ module.exports.showListing = (async(req, res)=>{
      populate: {path: 'author'}}).populate('owner');
 
    if(!listing){
-        req.flash("error", "Listing you requested does not exist!");
+        req.flash("error", "cannot find the listing!");
         return res.redirect("/listings");
    }
    res.render('listing/show',{listing});
@@ -68,7 +68,7 @@ module.exports.createListing= (async (req, res) => {
     const {id} = req.params;
     const listing = await Listing.findById(id);
     if(!listing){
-        req.flash("error", "Listing you requested does not exist!");
+        req.flash("error", "cannot find the listing!");
         return res.redirect("/listings");
    }
 
@@ -129,15 +129,11 @@ module.exports.updateListing = (async(req,res)=>{
             filename: req.file.filename
         };
     }
-    //  if(typeof req.file !== "undefined"){
-    //  let url = req.file.path;
-    // let filename = req.file.filename;
-    // listing.image = {url, filename };
-
+    
     //save everthing once
     await listing.save();
     
-    req.flash("success", "Updated a listing");
+    req.flash("success", "Successfully Updated the Listing");
     res.redirect(`/listings/${id}`);
 });
 
@@ -147,7 +143,7 @@ module.exports.destroyListing = (async(req,res)=>{
 let {id} = req.params;
 let deletedListing = await Listing.findByIdAndDelete(id);
 console.log(deletedListing);
-req.flash("success", "Deleted a listing");
+req.flash("success", "Successfully Deleted the Listing");
 res.redirect('/listings');
 });
 

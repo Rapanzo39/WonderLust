@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const express = require("express");
 const passportLocalMongoose = require("passport-local-mongoose").default;
 const Schema = mongoose.Schema;
 const User = require("./user.js");

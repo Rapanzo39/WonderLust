@@ -4,7 +4,7 @@ const router = express.Router();
 const Booking = require("../models/booking");
 const Listing = require("../models/listing");
 const { isLoggedIn } = require("../middleware");
-const app = express();
+
 
 // ==========================
 // 1️ CREATE BOOKING

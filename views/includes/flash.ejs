@@ -1,12 +1,14 @@
 <% if(flashMessages && flashMessages.length) { %>
     <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
         <%= flashMessages %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
-  <% } %> <% if(errorMessages && errorMessages.length) { %>
+  <% } %> 
+  
+  <% if(errorMessages && errorMessages.length) { %>
     <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
         <%= errorMessages %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
-    <% } %>
+  <% } %>
 
