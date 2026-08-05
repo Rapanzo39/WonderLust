@@ -132,20 +132,509 @@ body{
 .show-img{
     height:30vh;
 
+    object-fit:cover;
+
+
 }
 
 .btns{
     display:flex;
+
+    gap:1rem;
 }
 
 .show-card{
     padding-left: 0;
     padding-right: 0;
+
+    border-radius: 1.5rem !important;
+    overflow: hidden;
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
 }
 
 /* map */
 
 #map {
-    height: 400px;
-    width: 100%;
+    height: 500px;
+    width: 150%;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+/* =================================
+   PREMIUM DARK MODE
+================================= */
+
+body.dark-mode{
+    background: linear-gradient(135deg,#111827,#1a1f2e);
+    color: #f5f5f5;
+}
+
+/* Navbar */
+
+.dark-mode .navbar{
+    background: rgba(17,24,39,.85) !important;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+/* Links */
+
+.dark-mode .nav-link,
+.dark-mode .navbar-brand{
+    color: white !important;
+}
+
+.dark-mode .nav-link:hover{
+    color: #fe424d !important;
+}
+
+/* Search */
+
+.dark-mode .search-input{
+    background: #202938 !important;
+    color: white !important;
+    border: 1px solid rgba(255,255,255,.08) !important;
+}
+
+.dark-mode .search-input::placeholder{
+    color: #bdbdbd;
+}
+
+/* Cards */
+
+.dark-mode .listing-card{
+    background: #202938 !important;
+    border: 1px solid rgba(255,255,255,.08) !important;
+}
+
+.dark-mode .listing-card:hover{
+
+    box-shadow:
+    0 0 25px rgba(254,66,77,.20),
+    0 0 30px rgba(255,255,255,.07);
+
+    transform: translateY(-8px);
+}
+
+/* Card text */
+
+.dark-mode .card-title{
+    color: white !important;
+}
+
+.dark-mode .card-text{
+    color: #d0d0d0 !important;
+}
+
+/* Show card */
+
+.dark-mode .show-card{
+    background: #202938;
+}
+
+/* Forms */
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select{
+    background: #202938 !important;
+    color: white !important;
+    border: 1px solid rgba(255,255,255,.08) !important;
+}
+
+/* Footer */
+
+.dark-mode .f-info{
+    background: #162033;
+}
+
+.dark-mode .f-info a{
+    color: #e5e5e5;
+}
+
+.dark-mode .f-info a:hover{
+    color: #fe424d;
+}
+
+/* Theme Button */
+
+#themeToggle{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: #fe424d;
+    color: white;
+    transition: .3s;
+}
+
+#themeToggle:hover{
+    transform: scale(1.08);
+}
+
+/* Tax Toggle */
+
+.dark-mode .form-check-input:checked{
+    background-color: #fe424d !important;
+    border-color: #fe424d !important;
+}
+
+/* Category Icons */
+
+.filter{
+    padding-top: 0.4rem;
+    transition: all 0.3s ease;
+}
+
+.filter:hover{
+    color: #fe424d;
+    transform: scale(1.05);
+}
+
+.filter:hover i{
+    color: #fe424d;
+}
+
+/* Dark category */
+
+.dark-mode .filter{
+    color: #cfcfcf;
+}
+
+.dark-mode .filter:hover{
+    color: #fe424d;
+}
+
+/* Map */
+
+.dark-mode #map{
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Wishlist button */
+
+.btn-outline-danger:hover{
+    background: #fe424d !important;
+}
+
+/* Footer Icons */
+
+.f-info-socials i:hover{
+    transform: scale(1.15);
+}
+
+/* Smooth animation */
+
+*{
+    transition: all .25s ease;
+}
+
+/* ================= TAX TOGGLE DARK MODE FIX ================= */
+
+.tax-toggle {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 20px;
+    padding: 0.8rem 1rem;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+/* Dark mode container */
+.dark-mode .tax-toggle {
+    background: #202938 !important;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Tax text */
+.dark-mode .tax-toggle label,
+.dark-mode .tax-toggle span,
+.dark-mode .tax-toggle p {
+    color: white !important;
+}
+
+/* Bootstrap switch */
+.dark-mode .form-check-input {
+    background-color: #3b465c;
+    border-color: #555;
+}
+
+/* ON state */
+.dark-mode .form-check-input:checked {
+    background-color: #fe424d !important;
+    border-color: #fe424d !important;
+}
+
+/* Focus glow */
+.dark-mode .form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(254,66,77,0.25);
+}
+
+
+/* ================= CAROUSEL ARROWS ================= */
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 8%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0,0,0,0.55);
+    border-radius: 50%;
+    padding: 1.5rem;
+    background-size: 55%;
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    background-color: #fe424d;
+    transform: scale(1.1);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Wishlist Buttons */
+
+.wishlist-btn{
+    border: none;
+    padding: 0.75rem 1.3rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Not Saved */
+.save-btn{
+    background-color: white;
+    color: #fe424d;
+    border: 2px solid #fe424d;
+}
+
+.save-btn:hover{
+    background-color: #fe424d;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Saved */
+.saved-btn{
+    background: linear-gradient(135deg,#fe424d,#ff6b81);
+    color: white;
+    box-shadow: 0 8px 20px rgba(254,66,77,0.35);
+}
+
+.saved-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(254,66,77,0.5);
+}
+
+.remove-btn{
+    background: #222;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.remove-btn:hover{
+    background: #fe424d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(254,66,77,0.35);
+}
+
+.dark-mode .save-btn{
+    background: transparent;
+    color: #fe424d;
+}
+
+.dark-mode .remove-btn{
+    background: #ff385c;
+}
+
+/* =========================
+   WISHLIST CARDS
+========================= */
+
+/* ======================
+   WISHLIST PAGE
+====================== */
+
+.wishlist-card{
+    border: none !important;
+    border-radius: 22px;
+    overflow: hidden;
+    background: white;
+    transition: all .35s ease;
+    box-shadow: 0 8px 22px rgba(0,0,0,.08);
+}
+
+.wishlist-card:hover{
+    transform: translateY(-8px);
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.15),
+    0 0 20px rgba(254,66,77,.15);
+}
+
+.wishlist-img-container{
+    position: relative;
+    overflow: hidden;
+}
+
+.wishlist-card img{
+    height: 250px;
+    object-fit: cover;
+    transition: .4s ease;
+}
+
+.wishlist-card:hover img{
+    transform: scale(1.05);
+}
+
+.wishlist-badge{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255,255,255,.95);
+    color: #fe424d;
+    padding: .45rem .9rem;
+    border-radius: 25px;
+    font-size: .9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+.wishlist-price{
+    color: #fe424d;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.remove-btn {
+    background: #ff385c;
+    color: white;
+    border: 2px solid #ff385c;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 56, 92, 0.15);
+}
+
+/* Hover effect */
+.remove-btn:hover {
+    background: #e63252;  /* slightly darker shade */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 56, 92, 0.35);
+}
+
+.remove-btn.outline {
+    background: white;
+    color: #ff385c;
+    border: 2px solid #ff385c;
+}
+
+.remove-btn.outline:hover {
+    background: #ff385c;
+    color: white;
+}
+
+/* DARK MODE CLEAN VERSION */
+.dark-mode .remove-btn {
+    background: #ff385c;
+    color: white;
+}
+
+/* hover same consistent feel */
+.dark-mode .remove-btn:hover {
+    background: #e63252;
+}
+
+.dark-mode .wishlist-card{
+    background: #1c1c1e;
+    border: 1px solid #2f2f2f;
+}
+
+.dark-mode .wishlist-card:hover{
+    box-shadow:
+    0 18px 35px rgba(255,255,255,.06),
+    0 0 20px rgba(254,66,77,.2);
+}
+
+.dark-mode .wishlist-badge{
+    background: rgba(30,30,30,.95);
+}
+
+
+.owner-actions{
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-btn{
+    border: none;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.edit-action{
+    background: linear-gradient(135deg,#ff5a5f,#ff385c);
+}
+
+.edit-action:hover{
+    transform: translateY(-3px);
+    color: white;
+    box-shadow: 0 8px 20px rgba(255,56,92,0.3);
+}
+
+.delete-action{
+    background: #222;
+}
+
+.delete-action:hover{
+    transform: translateY(-3px);
+    background: #000;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+
+.reserve-btn{
+    width: 50%;
+    border: none;
+    padding: 14px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ff385c, #ff5a5f);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+    margin: 20px auto;
+}
+
+.reserve-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255,56,92,0.35);
+}
+
+.reserve-btn:active{
+    transform: scale(0.98);
 }

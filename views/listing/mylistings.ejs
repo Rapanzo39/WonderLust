@@ -10,9 +10,16 @@
 
 <div class="card listing-card">
 
-<img
-src="<%= listing.images[0].url %>"
-class="card-img-top">
+<!-- <img
+src="<%= listing.image.url %>"
+class="card-img-top"> -->
+
+<% if(listing.images && listing.images.length > 0){ %>
+  <img src="<%= listing.images[0].url %>" class="card-img-top" alt="listing image">
+<% } else { %>
+  <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image">
+<% } %>
+
 
 <div class="card-body">
 

@@ -29,6 +29,7 @@ router.post("/fake-pay", async (req, res) => {
 
     try {
         const { bookingId } = req.body;
+        console.log(req.body);
 
         if (!bookingId) {
             return res.status(400).json({ success: false, message: "bookingId missing" });

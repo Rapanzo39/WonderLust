@@ -13,13 +13,10 @@ const {storage} = require("../cloudConfig.js");
 const upload = multer({ storage });
 
 //category filter route
-
 router.get("/filter/:category", async (req, res) => {
     console.log("filter route hit");
-
     let { category } = req.params;
     // console.log(category);
-
     let allListing = await Listing.find({ category });
     // console.log(allListing);
     res.render("listing/index.ejs", { allListing });
@@ -41,6 +38,18 @@ router.get("/search", async (req, res) => {
     res.render("listing/index.ejs", { allListing });
 });
 
+     // MY LISTING ROUTES
+router.get("/mylistings", isLoggedIn, async (req, res) => {
+    console.log("MY LISTINGS ROUTE HIT");
+
+    const listings = await Listing.find({
+        owner: req.user._id
+    });
+
+    res.render("listing/mylistings", { listings });
+
+});
+
 //index route
 router
     .route("/")
@@ -55,6 +64,11 @@ router
 //new route 
 router.get('/new',isLoggedIn, listingController.renderNewForm);
 
+//edit route
+router.get('/:id/edit',
+    isLoggedIn, isOwner,
+    wrapAsync (listingController.renderEditForm));
+
 
 //show, update, delete route
 router.route('/:id')
@@ -66,14 +80,6 @@ router.route('/:id')
     wrapAsync(listingController.updateListing)
 )
 .delete(isLoggedIn, isOwner, wrapAsync,(listingController.destroyListing));
-
-
-
-//edit route
-router.get('/:id/edit',
-    isLoggedIn, isOwner,
-    wrapAsync (listingController.renderEditForm));
-
 
 
 module.exports = router;

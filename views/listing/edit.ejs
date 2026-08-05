@@ -44,6 +44,36 @@
             <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required>
                     <div class="invalid-feedback">add location</div>
         </div>
+
+         <div class="mb-3">
+    <label class="form-label">Category</label>
+
+    <select name="listing[category]" class="form-select">
+
+        <option value="Trending" <%= listing.category==="Trending" ? "selected" : "" %>>Trending</option>
+
+        <option value="Rooms" <%= listing.category==="Rooms" ? "selected" : "" %>>Rooms</option>
+
+        <option value="Iconic Cities" <%= listing.category==="Iconic Cities" ? "selected" : "" %>>Iconic Cities</option>
+
+        <option value="Mountains" <%= listing.category==="Mountains" ? "selected" : "" %>>Mountains</option>
+
+        <option value="Beaches" <%= listing.category==="Beaches" ? "selected" : "" %>>Beaches</option>
+
+        <option value="Castle" <%= listing.category==="Castle" ? "selected" : "" %>>Castle</option>
+
+        <option value="Farms" <%= listing.category==="Farms" ? "selected" : "" %>>Farms</option>
+
+        <option value="Arctic" <%= listing.category==="Arctic" ? "selected" : "" %>>Arctic</option>
+
+        <option value="Camping" <%= listing.category==="Camping" ? "selected" : "" %>>Camping</option>
+
+        <option value="Swimming Pool" <%= listing.category==="Swimming Pool" ? "selected" : "" %>>Swimming Pool</option>
+
+        <option value="Domes" <%= listing.category==="Domes" ? "selected" : "" %>>Domes</option>
+
+    </select>
+</div>
         
         <button class="btn btn-dark edit-btn mt-3">Edit</button>
     </form>
