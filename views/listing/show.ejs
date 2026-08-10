@@ -2,7 +2,7 @@
     <div class="row mt-3">
         <div class="col-8 offset-3"> 
     <h3><%=listing.title %></h3> </div>
-<div class="card col-6 offset-3 show-card listing-card ">
+<div class="card col-6 offset-3  listing-card ">
 
 
  <% if(listing.images && listing.images.length > 0){ %>
@@ -169,6 +169,7 @@ alt="listing image">
 
 <hr>
 
+<div class="review-card row">
     <div class="col-8 offset-3 mb-3"><hr>
         <% if(currentUser){ %>
 <h4>Leave a Review</h4>
@@ -225,6 +226,7 @@ alt="listing image">
 <% } %>
     </div>
     <%} %>
+</div>
 </div>
 
 <div class="col-6 offset-3 mb-3">

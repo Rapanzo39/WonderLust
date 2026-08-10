@@ -258,16 +258,11 @@ body{
 /* =========================
    BUTTONS
    ========================= */
+
 /* new page */
-
-.add-btn{
-    background-color:#fe424d !important;
-    border:none !important;
-
-}
-
 /* edit page */
 
+.add-btn,
 .edit-btn{
     background-color:#fe424d !important;
     border:none !important;
@@ -288,8 +283,8 @@ body{
    ========================= */
 
    .show-card{
-    padding-left: 0;
-    padding-right: 0;
+    /* padding-left: 0;
+    padding-right: 0; */
 
     border-radius: 1.5rem !important;
     overflow: hidden;
@@ -310,16 +305,21 @@ body{
 
 /* REVIEW CARDS */
 
-.review-card{
-    border-radius: 18px;
-    border: 1px solid rgba(0,0,0,.06);
-    transition: .3s ease;
+.review-card .card{
+    border-radius:16px;
+    border:1px solid rgba(0,0,0,.06);
+    transition:.3s ease;
 }
 
-.review-card:hover{
-    transform: translateY(-5px);
+.review-card .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
 
+.dark-mode .review-card .card{
+    background:#202938;
+    border:1px solid rgba(255,255,255,.08);
+}
 
 /* map */
 
@@ -457,15 +457,65 @@ body.dark-mode .listing-card .card-title {
 
 /* Category Icons */
 
-.filter{
-    padding-top: 0.4rem;
-    transition: all 0.3s ease;
-}
+ #filters{
+      display: flex;
+      /* flex-wrap: wrap; */
+      align-items: center;
 
-.filter:hover{
-    color: #fe424d;
-    transform: scale(1.05);
-}
+      justify-content: space-between;
+      margin-top: 1rem;
+
+    }
+    .filter-container{
+
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      flex: 1;
+    }
+
+    .filter-container::-webkit-scrollbar{
+      display: none;
+    }
+
+    .filter{
+      text-align: center;
+      min-width: 70px;
+      opacity: 0.8;
+      transition: all 0.2s ease;
+
+      padding-top: 0.4rem;
+    
+    }
+
+    .filter:hover{
+      opacity: 1;
+      cursor: pointer;
+
+       color: #fe424d;
+     transform: scale(1.05);
+    }
+
+    .filter p{
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0;
+
+    }
+
+    .filter i{
+      font-size: 1.2rem;
+    }
+
+    .filter-link{
+      text-decoration: none;
+      color: rgba(0,0,0,0.6);
+    }
+
+  .filter-link:hover{
+    /* color:#fe424d; */
+    color:black;
+  }
 
 .filter:hover i{
     color: #fe424d;
@@ -551,11 +601,9 @@ body.dark-mode .listing-card .card-title {
 /* comment button */
 
 .dark-mode .btn-outline-dark{
-    border: 1px solid rgba(0,0,0,0.08);
-    border-radius: 20px;
-    padding: 0.8rem 1rem;
-    background: white;
-    transition: all 0.3s ease;
+    background:transparent !important;
+    color:#fff !important;
+    border:1px solid rgba(255,255,255,.2) !important;
 }
 
 .dark-mode .btn-outline-dark:hover{
@@ -563,6 +611,56 @@ body.dark-mode .listing-card .card-title {
     color: white !important;
     border-color: #fe424d !important;
 }
+
+
+/* ================= PROFILE DROPDOWN ================= */
+
+.profile-btn{
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: .55rem 1rem;
+    font-weight: 600;
+}
+
+.profile-btn:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,.12);
+}
+
+.dropdown-menu{
+    border-radius: 18px !important;
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+.dropdown-item{
+    padding: .8rem 1rem;
+}
+
+.dropdown-item:hover{
+    background: #fff0f1;
+    color: #fe424d;
+}
+
+.dark-mode .profile-btn{
+    background: #202938;
+    color: white;
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.dark-mode .dropdown-menu{
+    background: #202938;
+}
+
+.dark-mode .dropdown-item{
+    color: white;
+}
+
+.dark-mode .dropdown-item:hover{
+    background: rgba(254,66,77,.15);
+    color: #fe424d;
+}
+
 
 /* ================= CAROUSEL ARROWS ================= */
 
@@ -832,6 +930,8 @@ body.dark-mode .listing-card .card-title {
     transform: scale(0.98);
 }
 
+
+
 /* Navbar links for dark mode */
 .dark-mode .navbar .nav-link,
 .dark-mode .navbar .navbar-brand,
@@ -882,6 +982,21 @@ body.dark-mode .listing-card .card-title {
 
 .dark-mode .f-info-socials i:hover {
     color: #fe424d !important;
+}
+
+
+/* Review section dark mode fix */
+.dark-mode .review-card .card {
+    background: #202938 !important;
+    border: 1px solid rgba(255,255,255,.08) !important;
+}
+
+.dark-mode .review-card .card-title,
+.dark-mode .review-card .card-text,
+.dark-mode .review-card .starability-result,
+.dark-mode .review-card p,
+.dark-mode .review-card h5 {
+    color: #ffffff !important;
 }
 
 
