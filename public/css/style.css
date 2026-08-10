@@ -21,7 +21,7 @@ body{
 /* navbar */
 
 .navbar{
-    height: 6rem;
+    height: 5rem;
     background: rgba(255,255,255,.9) !important;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
@@ -40,12 +40,12 @@ body{
 
 .fa-hotel{
     color: #fe424d;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .nav-link{
     color: #222 !important;
-    font-size: 1.05rem;
+    /* font-size: 1rem; */
     font-weight: 500;
     margin-left: .4rem;
     transition: .25s;
@@ -75,7 +75,7 @@ body{
     padding: .7rem 1.4rem !important;
     border: 1px solid #ddd !important;
 
-    font-size: 1.08rem;
+    font-size: 1.05rem;
   width:250px;
   transition: width 0.3s ease-in-out;
 }
