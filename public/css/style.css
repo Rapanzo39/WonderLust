@@ -75,8 +75,8 @@ body{
     padding: .7rem 1.4rem !important;
     border: 1px solid #ddd !important;
 
-    font-size: 1.05rem;
-  width:250px;
+    /* font-size: 1.05rem;
+  width:250px; */
   transition: width 0.3s ease-in-out;
 }
 
@@ -991,6 +991,91 @@ body.dark-mode .listing-card .card-title {
 .dark-mode .review-card p,
 .dark-mode .review-card h5 {
     color: #ffffff !important;
+}
+
+
+/* =========================
+   MOBILE NAVBAR FIX
+   ========================= */
+@media (max-width: 768px){
+
+    .navbar{
+        height: auto;
+        padding: 0.8rem 1rem;
+    }
+
+    .navbar-collapse{
+        margin-top: 1rem;
+    }
+
+    /* Stack everything vertically */
+    .navbar-nav{
+        width: 100%;
+        align-items: flex-start !important;
+    }
+
+    .navbar-nav .nav-link{
+        margin: 0.4rem 0;
+    }
+
+    /* Search form full width */
+    .navbar form{
+        width: 100%;
+        margin: 1rem 0 !important;
+    }
+
+    .search-inp{
+        width: 100% !important;
+    }
+
+    .search-btn{
+        white-space: nowrap;
+    }
+
+    /* Profile dropdown and theme button */
+    .profile-btn{
+        margin-top: 0.5rem;
+    }
+
+    #themeToggle{
+        margin-top: 0.8rem;
+        margin-left: 0 !important;
+    }
+
+    /* Filters section */
+    #filters{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .filter-container{
+        width: 100%;
+    }
+
+    .tax-toggle{
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    /* Listing cards */
+    .listing-card{
+        margin-bottom: 1.5rem;
+    }
+
+    .card-img-top{
+        height: 16rem !important;
+    }
+
+    .show-card{
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    #map{
+        width: 100% !important;
+        height: 320px;
+    }
 }
 
 
