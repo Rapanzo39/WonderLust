@@ -74,10 +74,6 @@ body{
     border-radius: 40px !important;
     padding: .7rem 1.4rem !important;
     border: 1px solid #ddd !important;
-
-    /* font-size: 1.05rem;
-  width:250px; */
-  transition: width 0.3s ease-in-out;
 }
 
 .search-inp:focus{
@@ -92,16 +88,10 @@ body{
     border: none !important;
     padding: .6rem 1.2rem !important;
 }
-.search-btn i{
-  margin-right:0.5rem ;
-}
 
 .search-btn:hover{
     transform: scale(1.03);
-    background-color: #fe424d;
 }
-
-
 
 /* footer */
 
