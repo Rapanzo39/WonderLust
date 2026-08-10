@@ -104,6 +104,11 @@ app.use(async (req, res, next) => {
     next();
 });
 
+//home route
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
@@ -113,11 +118,12 @@ app.use("/bookings", bookingRouter);
 app.use("/", paymentRoutes); // 💳 PAYMENT ROUTES
 
 
-// 404 and error handling
+// 404 handler
 app.use((req,res,next)=>{
     next(new ExpressError(404 , "Page Not Found!"));
 });
 
+// error handling
 app.use((err,req,res,next)=>{
     let {statusCode = 500, message="Somthing went wrong"} = err;
     res.status(statusCode).render("error.ejs", {err});
@@ -127,5 +133,6 @@ app.use((err,req,res,next)=>{
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
 
 
