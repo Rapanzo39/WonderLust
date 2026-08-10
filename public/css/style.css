@@ -35,7 +35,6 @@ body{
 
 .navbar-brand:hover{
     transform: rotate(-10deg) scale(1.05);
-    color: #fe424d !important;
 }
 
 .fa-hotel{
@@ -45,7 +44,6 @@ body{
 
 .nav-link{
     color: #222 !important;
-    /* font-size: 1rem; */
     font-weight: 500;
     margin-left: .4rem;
     transition: .25s;
@@ -91,6 +89,14 @@ body{
 
 .search-btn:hover{
     transform: scale(1.03);
+    background: #fe424d;
+}
+
+/* Make desktop search larger */
+@media (min-width: 992px){
+    .search-inp{
+        width: 380px;
+    }
 }
 
 /* footer */
@@ -984,88 +990,74 @@ body.dark-mode .listing-card .card-title {
 }
 
 
-/* =========================
-   MOBILE NAVBAR FIX
-   ========================= */
+/* Navbar Mobile layout */
 @media (max-width: 768px){
 
-    .navbar{
-        height: auto;
-        padding: 0.8rem 1rem;
-    }
+  .navbar{
+    height:auto;
+    padding:.8rem 1rem;
+  }
 
-    .navbar-collapse{
-        margin-top: 1rem;
-    }
+  .navbar-collapse{
+    margin-top:1rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+  }
 
-    /* Stack everything vertically */
-    .navbar-nav{
-        width: 100%;
-        align-items: flex-start !important;
-    }
+  /* Center the left Explore section */
+  .navbar-collapse > .navbar-nav:first-child{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
 
-    .navbar-nav .nav-link{
-        margin: 0.4rem 0;
-    }
+  .navbar-collapse > .navbar-nav:first-child .nav-link{
+    text-align:center;
+    margin:0;
+  }
 
-    /* Search form full width */
-    .navbar form{
-        width: 100%;
-        margin: 1rem 0 !important;
-    }
+  /* Search form */
+  .navbar form{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    margin:0 !important;
+  }
 
-    .search-inp{
-        width: 100% !important;
-    }
+  .search-inp{
+    width:100% !important;
+    flex:1;
+  }
 
-    .search-btn{
-        white-space: nowrap;
-    }
+  .search-btn{
+    flex-shrink:0;
+    padding:.7rem 1rem !important;
+  }
 
-    /* Profile dropdown and theme button */
-    .profile-btn{
-        margin-top: 0.5rem;
-    }
+  /* Right side actions */
+  .mobile-actions{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center !important;
+    justify-content:center;
+    gap:.75rem;
+  }
 
-    #themeToggle{
-        margin-top: 0.8rem;
-        margin-left: 0 !important;
-    }
+  .mobile-actions .nav-link{
+    margin:0;
+    text-align:center;
+  }
 
-    /* Filters section */
-    #filters{
-        flex-direction: column;
-        align-items: stretch;
-        gap: 1rem;
-    }
+  .mobile-actions .dropdown{
+    margin-left:0 !important;
+  }
 
-    .filter-container{
-        width: 100%;
-    }
-
-    .tax-toggle{
-        margin-left: 0 !important;
-        width: 100%;
-    }
-
-    /* Listing cards */
-    .listing-card{
-        margin-bottom: 1.5rem;
-    }
-
-    .card-img-top{
-        height: 16rem !important;
-    }
-
-    .show-card{
-        width: 100% !important;
-        margin: 0 !important;
-    }
-
-    #map{
-        width: 100% !important;
-        height: 320px;
-    }
+  #themeToggle{
+    margin:0 !important;
+  }
 }
-
-
