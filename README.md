@@ -30,7 +30,7 @@ The project was built to practice **full-stack web development**, including fron
 ---
 ## 🌐 Live Demo
 
-🚀 **[View WonderLust Live](YOUR_LIVE_DEPLOYMENT_LINK)**
+🚀 **[View WonderLust Live](https://wonderlust-i8z9.onrender.com/listings)**
 
 ---
 
@@ -38,36 +38,43 @@ The project was built to practice **full-stack web development**, including fron
 
 ### 🏠 Home Page
 
-![WonderLust Home Page](./screenshots/home.png)
+![WonderLust Home Page](./assets/home.png)
 
-### 🏡 Listings Page
+### 🏡 My Listings 
 
-![WonderLust Listings Page](./screenshots/listings.png)
+![WonderLust Listings Page](./assets/my-listing.png)
 
 ### 📄 Listing Details
 
-![WonderLust Listing Details](./screenshots/listing-details.png)
-
-### 🗺️ Interactive Map
-
-![WonderLust Interactive Map](./screenshots/map.png)
-
-### 🔐 Login / Signup
-
-![WonderLust Authentication](./screenshots/login.png)
+![WonderLust Listing Details](./assets/listing-details.png)
 
 ### 📅 Booking
 
-![WonderLust Booking Page](./screenshots/booking.png)
+![WonderLust Booking Page](./assets/booking.png)
 
 ### ❤️ Wishlist
 
-![WonderLust Wishlist](./screenshots/wishlist.png)
+![WonderLust Wishlist](./assets/wishlist.png)
+
+### 🔑 Login page
+
+![WonderLust Login page](./assets/login.png)
+
+### 🔐 Signup page
+
+![WonderLust Authentication](./assets/signup.png)
+
+### ➕ Create Listing
+
+![WonderLust Create Listings](./assets/create-listing.png)
+
+### ✏️ Edit Listing
+
+![WonderLust Edit Listings](./assets/edit-listing.png)
 
 ### 🌙 Dark Mode
 
-![WonderLust Dark Mode](./screenshots/dark-mode.png)
-
+![WonderLust Dark Mode](./assets/dark-mode.png)
 
 ---
 
